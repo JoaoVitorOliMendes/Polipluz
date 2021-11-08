@@ -8,10 +8,6 @@ public class mainController {
 	
 	@RequestMapping("/")
 	public String home() {
-		return "<h1>Pagina Home</h1>"
-				+ "<ul>"
-				+ "<li><a href='/user'>Users</a></li>"
-				+ "<li><a href='/autoescola'>Autoescola</a></li>"
-				+ "</ul>";
+		return "<script> window.location.replace('http://localhost:4200/') </script>";
 	}
 }

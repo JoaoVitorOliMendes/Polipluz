@@ -14,7 +14,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-@EnableWebSecurity
 public class webSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
@@ -32,18 +31,17 @@ public class webSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-			.httpBasic()
-			.and()
 			.authorizeRequests()
 			.antMatchers("/")
 			.permitAll()
 			.antMatchers("/user")
-			.hasAnyAuthority("ADMIN","USER")
+			.permitAll()
+			.antMatchers("/autoescola")
+			.permitAll()
 			.anyRequest()
 			.authenticated()
 			.and()
-			.csrf()
-			.disable();
+			.httpBasic();
 	}
 	
 	@Bean
