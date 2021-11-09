@@ -7,7 +7,7 @@ import { RegisterComponent } from './login/register/register.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: 'main',
     component: SidenavComponent,
     children: componentRoutes
   },

@@ -25,21 +25,27 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+      if(this.authJwt.getToken()) {
+        this.rerouteToHome()
+      }
   }
 
   login() {
-    
     if(this.loginForm.valid) {
       const login: Login = {
         email: this.loginForm.get('email')?.value,
         senha: this.loginForm.get('senha')?.value
       }
       this.authJwt.login(login).subscribe(() => {
-        this.router.navigate(['/home'])
+        this.rerouteToHome()
       });
     }else {
       this.loginForm.markAllAsTouched();
     }
+  }
+
+  rerouteToHome() {
+    this.router.navigate(['/main'])
   }
 
 }

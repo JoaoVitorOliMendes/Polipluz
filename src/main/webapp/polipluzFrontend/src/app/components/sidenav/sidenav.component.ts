@@ -1,5 +1,7 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { authJwt } from '../../login/auth/authJwt';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-sidenav',
@@ -18,11 +20,17 @@ export class SidenavComponent implements OnInit {
 
   showFiller = true;
   drawerOpened: boolean = true
-  contentMargin = 17.5;
+  contentMargin = 17;
   
-  constructor() { }
+  constructor(
+    private authJwt: authJwt,
+    public router: Router,
+  ) { }
 
   ngOnInit(): void {
+    if(!this.authJwt.getToken()) {
+      this.rerouteToLogin()
+    }
   }
 
   drawertoggle() {
@@ -30,7 +38,16 @@ export class SidenavComponent implements OnInit {
     if(!this.drawerOpened){
       this.contentMargin = 7;
     }else {
-      this.contentMargin = 17.5;
+      this.contentMargin = 17;
     }
+  }
+
+  rerouteToLogin() {
+    this.router.navigate([''])
+  }
+
+  logout() {
+    this.authJwt.logout()
+    this.rerouteToLogin()
   }
 }

@@ -11,9 +11,9 @@
       <div class="sidenav d-flex flex-column min-h-100">
         <div class="container p-0 d-flex justify-content-center flex-grow-1 mt-5 pb-5">
           <ul class="list-group list-group-flush w-100">
-    
-            <!-- <a [routerLink]="['/entities/', { outlets: { content: 'home' } }]">
-              <li class="list-group-item align-items-center w-100 mb-1 mt-1" [ngClass]="{'p-0 justify-content-center d-flex': !drawerOpened, 'active': router.url == '/entities/(content:home)'}">
+
+            <a routerLink="home">
+              <li class="list-group-item align-items-center w-100 mb-1 mt-1" [ngClass]="{'p-0 justify-content-center d-flex': !drawerOpened, 'active': router.url == '/main/home'}">
                 <mat-icon [ngClass]="{'mr-3': drawerOpened}" @appears>
                   home
                 </mat-icon>
@@ -21,9 +21,20 @@
                   Home
                 </div>
               </li>
-            </a> -->
+            </a>
 
-            <a routerLink="">
+            <a routerLink="maps">
+              <li class="list-group-item align-items-center w-100 mb-1 mt-1" [ngClass]="{'p-0 justify-content-center d-flex': !drawerOpened, 'active': router.url == '/main/maps'}">
+                <mat-icon [ngClass]="{'mr-3': drawerOpened}" @appears>
+                  explore
+                </mat-icon>
+                <div class="mt-2" *ngIf="drawerOpened" @appears>
+                  Maps
+                </div>
+              </li>
+            </a>
+
+            <a role="button" (click)="logout()">
               <li class="list-group-item align-items-center w-100 mb-1 mt-1" [ngClass]="{'p-0 justify-content-center d-flex': !drawerOpened}">
                 <mat-icon [ngClass]="{'mr-3': drawerOpened}" @appears>
                   logout
@@ -42,7 +53,7 @@
   
     <mat-sidenav-content [ngStyle]="{ 'margin-left.vw': contentMargin }" class="matdrawer">
       <!-- <router-outlet name='top-navbar'></router-outlet> -->
-      <!-- <router-outlet name='content'></router-outlet> -->
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
   
   </mat-sidenav-container>

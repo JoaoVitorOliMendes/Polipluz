@@ -28,12 +28,11 @@ export class authJwt {
     }))
   }
 
-  logout(): Observable<void> {
-    return new Observable(observer => {
-      this.localStorageService.clear('authenticationToken');
-      this.sessionStorageService.clear('authenticationToken');
-      observer.complete();
-    });
+  logout() {
+    this.localStorageService.clear('poliToken');
+    this.sessionStorageService.clear('poliToken');
+    console.log("final");
+    
   }
 
   private authenticateSuccess(response: String): void {

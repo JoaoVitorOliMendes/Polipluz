@@ -32,6 +32,9 @@ import { RegisterComponent } from './login/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HttpClientModule } from '@angular/common/http';
+import { MapsComponent } from './components/maps/maps.component';
+import { AgmCoreModule } from '@agm/core';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -39,7 +42,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     SidenavComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MapsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +73,10 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxWebstorageModule.forRoot()
+    NgxWebstorageModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA74RoTQxioNA48qdf6LN6sjVhGa2LEPss'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
