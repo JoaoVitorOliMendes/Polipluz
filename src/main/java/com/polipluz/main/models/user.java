@@ -10,6 +10,9 @@ import javax.persistence.Id;
 
 import org.springframework.context.annotation.Configuration;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,8 +27,10 @@ public @Data @AllArgsConstructor @NoArgsConstructor class user implements Serial
 	private String nome;
 	@Column(nullable = false, unique = true)
 	private String email;
-	@Column(nullable = false)
+	
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private String senha;
+	
 	@Column(nullable = false)
 	private String role = "USER";
 	private static final long serialVersionUID = 1L;

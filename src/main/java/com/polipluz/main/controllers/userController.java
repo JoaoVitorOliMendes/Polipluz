@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.polipluz.main.models.JWTResponse;
 import com.polipluz.main.models.user;
 import com.polipluz.main.repository.userRepository;
 import com.polipluz.main.services.userService;

@@ -1,0 +1,49 @@
+<mat-sidenav-container class="w-100 h-100 fullscreenContainer" fullscreen>
+
+    <mat-sidenav class="leftSidenav" #drawer 
+    [ngClass]="{'sidenavMain': drawerOpened, 'sidenavMainClosed': !drawerOpened}" 
+    mode="side" opened>
+  
+      <button class="position-absolute p-0 border-0 double-arrow" [ngClass]="{'left-35': !drawerOpened}">
+        <mat-icon (click)="drawertoggle()" [ngClass]="{'mirror': drawerOpened}">double_arrow</mat-icon>
+      </button>
+  
+      <div class="sidenav d-flex flex-column min-h-100">
+        <div class="container p-0 d-flex justify-content-center flex-grow-1 mt-5 pb-5">
+          <ul class="list-group list-group-flush w-100">
+    
+            <!-- <a [routerLink]="['/entities/', { outlets: { content: 'home' } }]">
+              <li class="list-group-item align-items-center w-100 mb-1 mt-1" [ngClass]="{'p-0 justify-content-center d-flex': !drawerOpened, 'active': router.url == '/entities/(content:home)'}">
+                <mat-icon [ngClass]="{'mr-3': drawerOpened}" @appears>
+                  home
+                </mat-icon>
+                <div class="mt-2" *ngIf="drawerOpened" @appears>
+                  Home
+                </div>
+              </li>
+            </a> -->
+
+            <a routerLink="">
+              <li class="list-group-item align-items-center w-100 mb-1 mt-1" [ngClass]="{'p-0 justify-content-center d-flex': !drawerOpened}">
+                <mat-icon [ngClass]="{'mr-3': drawerOpened}" @appears>
+                  logout
+                </mat-icon>
+                <div *ngIf="drawerOpened" @appears>
+                  Sair
+                </div>
+              </li>
+            </a>
+    
+          </ul>
+        </div>
+      </div>
+      
+    </mat-sidenav>
+  
+    <mat-sidenav-content [ngStyle]="{ 'margin-left.vw': contentMargin }" class="matdrawer">
+      <!-- <router-outlet name='top-navbar'></router-outlet> -->
+      <!-- <router-outlet name='content'></router-outlet> -->
+    </mat-sidenav-content>
+  
+  </mat-sidenav-container>
+  

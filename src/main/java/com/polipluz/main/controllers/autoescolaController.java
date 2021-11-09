@@ -1,7 +1,6 @@
 package com.polipluz.main.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.polipluz.main.models.autoescola;
 import com.polipluz.main.repository.autoescolaRepository;
-import com.polipluz.main.repository.userRepository;
 
 @RestController
 public class autoescolaController {

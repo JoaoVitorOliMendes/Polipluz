@@ -20,22 +20,23 @@ public @Data @AllArgsConstructor @NoArgsConstructor class autoescola implements 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(nullable = false)
+	@Column(name = "nome",nullable = false)
 	private String nome;
-	@Column(nullable = false, unique = true)
+	@Column(name = "email",nullable = false, unique = true)
 	private String email;
-	@Column(nullable = false)
+	@Column(name = "senha",nullable = false)
 	private String senha;
-	@Column(nullable = false)
+	@Column(name = "cep",nullable = false)
 	private String cep;
-	@Column
+	@Column(name = "cnpj")
 	private String cnpj;
-	@Column
-	private String horariofunc;
-	@Column(nullable = false)
+	@Column(name = "horarioFunc")
+	private String horarioFunc;
+	@Column(name = "latitude",nullable = false)
 	private String latitude;
-	@Column(nullable = false)
+	@Column(name = "longitude",nullable = false)
 	private String longitude;
+	
 	private static final long serialVersionUID = 1L;
 	
 	public autoescola(Long id) {

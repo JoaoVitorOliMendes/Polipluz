@@ -1,7 +1,6 @@
 package com.polipluz.main.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -17,7 +16,7 @@ public class userDetailsService implements UserDetailsService {
 	private userRepository uRepository;
 	
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public userDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
 		user u = uRepository.findByEmail(username);
 		
