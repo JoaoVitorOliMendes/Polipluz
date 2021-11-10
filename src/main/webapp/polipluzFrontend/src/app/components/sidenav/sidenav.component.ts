@@ -43,7 +43,7 @@ export class SidenavComponent implements OnInit {
   }
 
   rerouteToLogin() {
-    this.router.navigate([''])
+    this.router.navigate(['/login'])
   }
 
   logout() {

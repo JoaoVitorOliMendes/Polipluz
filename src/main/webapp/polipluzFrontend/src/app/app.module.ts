@@ -31,10 +31,11 @@ import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './login/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxWebstorageModule } from 'ngx-webstorage';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MapsComponent } from './components/maps/maps.component';
 import { AgmCoreModule } from '@agm/core';
 import { HomeComponent } from './components/home/home.component';
+import { JWTInterceptor } from '../interceptors/JWTInterceptor';
 
 
 @NgModule({
@@ -78,7 +79,13 @@ import { HomeComponent } from './components/home/home.component';
       apiKey: 'AIzaSyA74RoTQxioNA48qdf6LN6sjVhGa2LEPss'
     })
   ],
-  providers: [],
+  providers: [
+    { 
+      provide: HTTP_INTERCEPTORS,
+      useClass: JWTInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

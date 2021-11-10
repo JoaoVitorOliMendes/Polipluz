@@ -13,7 +13,7 @@ export const componentRoutes: Routes = [
     },
     {
         path: '',
-        redirectTo: 'maps',
+        redirectTo: 'home',
         pathMatch: 'full'
     }
 ];
