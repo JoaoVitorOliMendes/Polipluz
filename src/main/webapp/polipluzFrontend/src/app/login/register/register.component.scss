@@ -1,0 +1,10 @@
+@import '../../../styles/styleVariables.scss';
+
+.registerContainer {
+    background-color: $medium-yellow;
+    box-shadow: 3px 3px 5px 2px $black;
+}
+
+.roundedHard {
+    border-radius: 32px;
+}

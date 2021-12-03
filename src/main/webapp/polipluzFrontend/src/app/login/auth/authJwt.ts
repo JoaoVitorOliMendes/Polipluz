@@ -22,7 +22,7 @@ export class authJwt {
   }
 
   login(login: Login): Observable<void> {
-    return this.http.post(serverUrl + '/login', login, {responseType: 'text'}).pipe(
+    return this.http.post(`${serverUrl}/login`, login, {responseType: 'text'}).pipe(
       map(res => {
       this.authenticateSuccess(res)
     }))

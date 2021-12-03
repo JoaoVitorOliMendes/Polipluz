@@ -36,6 +36,8 @@ import { MapsComponent } from './components/maps/maps.component';
 import { AgmCoreModule } from '@agm/core';
 import { HomeComponent } from './components/home/home.component';
 import { JWTInterceptor } from '../interceptors/JWTInterceptor';
+import { CardComponent } from './components/card/card.component';
+import { AutoescolaModalComponent } from './components/modals/autoescola-modal/autoescola-modal.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { JWTInterceptor } from '../interceptors/JWTInterceptor';
     LoginComponent,
     RegisterComponent,
     MapsComponent,
-    HomeComponent
+    HomeComponent,
+    CardComponent,
+    AutoescolaModalComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +78,7 @@ import { JWTInterceptor } from '../interceptors/JWTInterceptor';
     NgbModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatDialogModule,
     NgxWebstorageModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA74RoTQxioNA48qdf6LN6sjVhGa2LEPss'

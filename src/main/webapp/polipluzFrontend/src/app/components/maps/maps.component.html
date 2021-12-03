@@ -1,5 +1,5 @@
 <div class="h-100 w-100">
-    <agm-map [latitude]="lat" [longitude]="lng" class="h-100 w-100">
-        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    <agm-map class="h-100 w-100" [latitude]="-19.920626070324953" [longitude]="-43.93680607636681">
+        <agm-marker (markerClick)="presentModal(autoescola)" *ngFor="let autoescola of arrayAutoescolas" [latitude]="stringToNumber(autoescola.latitude)" [longitude]="stringToNumber(autoescola.longitude)"></agm-marker>
     </agm-map>
 </div>

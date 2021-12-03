@@ -1,0 +1,26 @@
+<div class="row justify-content-center p-5 roundedHard registerContainer" [formGroup]="registerForm">
+
+    <mat-form-field appearance="outline" class="col-12 mb-3 outlineStandard">
+        <mat-label>Nome da autoescola</mat-label>
+        <input matInput placeholder="Joao Vitor da Silva" formControlName="nome" required>
+        <mat-error *ngIf="registerForm.get('nome')?.errors?.required">
+            Por favor digite seu nome
+        </mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline" class="col-12 mb-3 outlineStandard">
+        <mat-label>Nome da autoescola</mat-label>
+        <input matInput placeholder="Joao Vitor da Silva" formControlName="nome" required>
+        <mat-error *ngIf="registerForm.get('nome')?.errors?.required">
+            Por favor digite seu nome
+        </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="col-lg-3 m-3" (click)="save()">
+        Salvar
+    </button>
+    <button mat-raised-button color="accent" class="col-lg-3 m-3" (click)="cancel()">
+        Cancelar
+    </button>
+
+</div>

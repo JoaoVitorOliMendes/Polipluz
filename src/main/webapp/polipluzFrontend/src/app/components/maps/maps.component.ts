@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Autoescola } from '../../models/autoescola.model';
+import { AutoescolaService } from '../../services/autoescolaService';
+import { AutoescolaModalComponent } from '../modals/autoescola-modal/autoescola-modal.component';
 
 @Component({
   selector: 'app-maps',
@@ -7,13 +11,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapsComponent implements OnInit {
 
-  
-  lat = -19.920626070324953;
-  lng = -43.93680607636681;
-  
-  constructor() { }
+  arrayAutoescolas: Autoescola[] = []
+
+  constructor(
+    private autoescolaService: AutoescolaService,
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
+    this.search()
+  }
+
+  search() {
+    this.autoescolaService.getAll().subscribe((res) => {
+      if(res.body) {
+        this.arrayAutoescolas = res.body
+        console.log(this.arrayAutoescolas);
+      }
+    })
+  }
+
+  stringToNumber(string: any) : number {
+    return parseFloat(string)
+  }
+
+  presentModal(autoescola: Autoescola): void {
+    const dialogRef = this.dialog.open(AutoescolaModalComponent, {
+      width: '25rem',
+      data: {
+        autoescola: autoescola
+      },
+      panelClass: 'autoescolaModal'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.search();
+    });
   }
 
 }

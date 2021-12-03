@@ -1,13 +1,95 @@
 @import "./styles/materialsTheming.scss";
 @import "./styles/styleVariables.scss";
-
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap');
 
 
 html, body { height: 100%; }
 body { 
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: $light-purple !important;
+}
+
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+/* Materials Custom Input */
+.outlineStandard .mat-form-field-wrapper {
+    font-weight: bold;
+    .mat-form-field-outline {
+        color: #00000000 !important;
+        background: $white;
+        border-radius: 24px;
+    }
+
+    .mat-form-field-flex {
+        padding: 0 1.25em 0 1.25em !important;
+        .mat-form-field-infix {
+            padding: 1em 0 1.5em 0;
+            .mat-form-field-label-wrapper {
+                .mat-form-field-label {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+    
+    .mat-form-field-outline-start, .mat-form-field-outline-end {
+        border: none !important;
+    }
+}
+.outlineStandard.mat-form-field .mat-form-field-label {
+    color: $black;
+}
+.outlineStandard.mat-form-field .mat-form-field-prefix {
+    margin-right: 1.75rem;
+}
+.outlineStandard.mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: $red !important;
+}
+.outlineStandard.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
+.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label {
+    transform: translateY(-1em) scale(0.75) !important;
+    color: $poli-purple;
+}
+
+
+
+//input placeholder
+input::placeholder, textarea::placeholder {
+    color: $black !important;
+    font-weight: bold !important;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: $black !important;
+    font-weight: bold !important;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color: $black !important;
+    font-weight: bold !important;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+    color: $black !important;
+    font-weight: bold !important;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+    color: $black !important;
+    font-weight: bold !important;
+}
+input,textarea {
+    caret-color: $black !important;
+}
+
+
+
+*:focus-visible {
+    outline: none !important;
+}
+
+.bold {
+    font-weight: bold
 }
 
 /* Importing Bootstrap SCSS file. */

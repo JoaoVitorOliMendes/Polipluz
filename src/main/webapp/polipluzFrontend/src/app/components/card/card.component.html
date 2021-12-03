@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-title>
+        {{ autoescola.nome }}
+        
+        <button mat-button color="warn" class="float-right">
+            <mat-icon>
+                delete
+            </mat-icon>
+        </button>
+    </mat-card-title>
+    <mat-card-subtitle>{{ autoescola.email }}</mat-card-subtitle>
+
+    <mat-card-content>
+        <p class="bold" *ngIf="autoescola.horarioFunc">Horario de funcionamento: <span class="float-right">{{ autoescola.horarioFunc }}</span></p>
+        <p class="bold">CEP: <span class="float-right">{{ autoescola.cep }}</span></p>
+        <p class="bold">Telefone: <span class="float-right">{{ autoescola.telefone }}</span></p>
+    </mat-card-content>
+</mat-card>

@@ -24,8 +24,8 @@ public @Data @AllArgsConstructor @NoArgsConstructor class autoescola implements 
 	private String nome;
 	@Column(name = "email",nullable = false, unique = true)
 	private String email;
-	@Column(name = "senha",nullable = false)
-	private String senha;
+	@Column(name = "telefone",nullable = false)
+	private String telefone;
 	@Column(name = "cep",nullable = false)
 	private String cep;
 	@Column(name = "cnpj")
