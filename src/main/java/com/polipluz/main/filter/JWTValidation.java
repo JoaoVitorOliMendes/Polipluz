@@ -17,12 +17,15 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+
 public class JWTValidation extends BasicAuthenticationFilter {
 	
 	public static final String HEADER = "Authorization";
 	public static final String HEADER_PREFIX = "Bearer ";
 	
-    private String secret = "JLA5&/%th^v2s1WwcSc@,cjS,0GgGd";
+    private static String secret = "JLA5&/%th^v2s1WwcSc@,cjS,0GgGd";
 	
 	public JWTValidation(AuthenticationManager authManager) {
 		super(authManager);
@@ -46,7 +49,7 @@ public class JWTValidation extends BasicAuthenticationFilter {
 		chain.doFilter(request, response);
 	}
 	
-	private UsernamePasswordAuthenticationToken getAuthToken(String token) {
+	private static UsernamePasswordAuthenticationToken getAuthToken(String token) {
 		String u = JWT.require(Algorithm.HMAC512(secret))
 				.build()
 				.verify(token)
@@ -58,6 +61,13 @@ public class JWTValidation extends BasicAuthenticationFilter {
 			return new UsernamePasswordAuthenticationToken(u, null, new ArrayList<>());
 		}
 		
+	}
+	
+	public static Boolean decodeJWT(String jwt) {
+		String token = jwt.replace(HEADER_PREFIX, "");
+		UsernamePasswordAuthenticationToken authToken = getAuthToken(token);
+
+		return authToken.isAuthenticated();
 	}
 	
 }

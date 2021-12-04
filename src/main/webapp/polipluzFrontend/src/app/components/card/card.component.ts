@@ -9,11 +9,11 @@ import { Autoescola } from '../../models/autoescola.model';
 export class CardComponent implements OnInit {
 
   @Input("autoescola") autoescola: any;
+  @Input("removable") removable: any;
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.autoescola);
   }
 
 }

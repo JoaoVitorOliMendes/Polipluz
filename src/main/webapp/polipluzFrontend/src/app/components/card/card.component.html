@@ -2,7 +2,7 @@
     <mat-card-title>
         {{ autoescola.nome }}
         
-        <button mat-button color="warn" class="float-right">
+        <button mat-button color="warn" class="float-right" *ngIf="removable">
             <mat-icon>
                 delete
             </mat-icon>

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.polipluz.main.filter.JWTValidation;
 import com.polipluz.main.models.JWTRequest;
 import com.polipluz.main.models.JWTResponse;
 import com.polipluz.main.models.autoescola;
@@ -25,12 +26,10 @@ public class authenticationController {
 	@Autowired
 	private userDetailsService uDetailsService;
 	
-	/*
-	 * @RequestMapping(method = RequestMethod.POST, value = "/authenticate") public
-	 * JWTResponse authenticate(@RequestBody JWTRequest jwtReq) throws Exception {
-	 * 
-	 * }
-	 */
+	@RequestMapping(method = RequestMethod.POST, value = "/authenticate")
+	public Boolean authenticate(@RequestBody String token) throws Exception {
+		return JWTValidation.decodeJWT(token);
+	}
 
 	
 }

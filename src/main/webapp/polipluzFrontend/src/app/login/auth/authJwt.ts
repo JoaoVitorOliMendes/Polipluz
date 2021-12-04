@@ -24,15 +24,20 @@ export class authJwt {
   login(login: Login): Observable<void> {
     return this.http.post(`${serverUrl}/login`, login, {responseType: 'text'}).pipe(
       map(res => {
-      this.authenticateSuccess(res)
-    }))
+        this.authenticateSuccess(res)
+      }))
+  }
+
+  authJWT(token: String): Observable<void> {
+    return this.http.post(`${serverUrl}/authenticate`, token, {responseType: 'text'}).pipe(
+      map(res => {
+        
+      }))
   }
 
   logout() {
     this.localStorageService.clear('poliToken');
     this.sessionStorageService.clear('poliToken');
-    console.log("final");
-    
   }
 
   private authenticateSuccess(response: String): void {

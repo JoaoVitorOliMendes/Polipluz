@@ -28,7 +28,20 @@ export class SidenavComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(!this.authJwt.getToken()) {
+    const token = this.authJwt.getToken()
+    var tkValid = false
+    //Check if there is a token saved
+    if (token) {
+      //Check is the token is still valid
+      this.authJwt.authJWT(token).toPromise()
+      .then(() => {
+        this.authJwt.authJWT(token).subscribe(() => {
+          tkValid = true
+        })
+      }).catch(() => {
+        this.rerouteToLogin()
+      })
+    }else {
       this.rerouteToLogin()
     }
   }

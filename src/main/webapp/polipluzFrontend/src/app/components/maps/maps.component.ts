@@ -26,7 +26,6 @@ export class MapsComponent implements OnInit {
     this.autoescolaService.getAll().subscribe((res) => {
       if(res.body) {
         this.arrayAutoescolas = res.body
-        console.log(this.arrayAutoescolas);
       }
     })
   }

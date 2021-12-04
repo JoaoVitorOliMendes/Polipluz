@@ -25,9 +25,14 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-      if(this.authJwt.getToken()) {
+    const token = this.authJwt.getToken()
+    //Check if there is a token saved
+    if (token) {
+      //Check is the token is still valid
+      this.authJwt.authJWT(token).subscribe(() => {
         this.rerouteToHome()
-      }
+      })
+    }
   }
 
   login() {
