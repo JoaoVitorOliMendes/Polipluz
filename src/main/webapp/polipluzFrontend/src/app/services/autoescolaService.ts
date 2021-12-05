@@ -16,8 +16,12 @@ export class AutoescolaService {
         protected http: HttpClient
     ) {}
 
-    create(time: Autoescola): Observable<EntityResponseType> {
-        return this.http.post<Autoescola>(`${serverUrl}/autoescola`, time, { observe: 'response' });
+    create(autoescola: Autoescola): Observable<EntityResponseType> {
+        return this.http.post<Autoescola>(`${serverUrl}/autoescola`, autoescola, { observe: 'response' });
+    }
+
+    update(autoescola: Autoescola): Observable<EntityResponseType> {
+        return this.http.put<Autoescola>(`${serverUrl}/autoescola`, autoescola, { observe: 'response' });
     }
 
     getAll(): Observable<EntityArrayResponseType> {

@@ -19,8 +19,8 @@
 }
 
 a:hover .list-group-item, .active {
-  color: $white;
-  border-right: $white solid;
+  color: $dark-grey;
+  border-right: $dark-grey solid;
   font-weight: bold;
 }
 a:hover {
@@ -37,11 +37,6 @@ a {
 
 .matdrawer{
   transition: 500ms ease-in-out;
-  background-color: $light-grey;
-}
-
-.fullscreenContainer {
-  background-color: $light-grey;
 }
 
 .double-arrow {
@@ -68,7 +63,6 @@ a {
 .sidenavMain {
   width: 17.5vw;
   border: 0;
-  background-color: #fafafa;
   transition: width 350ms ease-in-out;
   box-shadow: 1px 0px 10px 5px #0000003f;
 }
@@ -76,14 +70,12 @@ a {
 .sidenavMainClosed {
   width: 7vw;
   border: 0;
-  background-color: #fafafa;
   transition: width 350ms ease-in-out;
   box-shadow: 1px 0px 10px 5px #0000003f;
 }
 
 .sidenav {
   min-height: 100%;
-  background-color: $poli-purple;
   box-shadow: 1px 0px 10px 5px #0000003f;
 }
 

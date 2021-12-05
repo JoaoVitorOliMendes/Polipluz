@@ -38,6 +38,8 @@ import { HomeComponent } from './components/home/home.component';
 import { JWTInterceptor } from '../interceptors/JWTInterceptor';
 import { CardComponent } from './components/card/card.component';
 import { AutoescolaModalComponent } from './components/modals/autoescola-modal/autoescola-modal.component';
+import { TextMaskModule } from 'angular2-text-mask';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'; 
 
 
 @NgModule({
@@ -79,6 +81,8 @@ import { AutoescolaModalComponent } from './components/modals/autoescola-modal/a
     ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule,
+    TextMaskModule,
+    MatSlideToggleModule,
     NgxWebstorageModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA74RoTQxioNA48qdf6LN6sjVhGa2LEPss'

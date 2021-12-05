@@ -38,7 +38,9 @@
 
 @include mat-core();
 
-$poli-purple: (
+
+// Light theme
+$poli-light-purple: (
     50: #392E8C,
     100: #392E8C,
     200: #392E8C,
@@ -71,7 +73,7 @@ $poli-purple: (
     )
 );
 
-$poli-yellow: (
+$poli-light-yellow: (
     50: #F1E63C,
     100: #F1E63C,
     200: #F1E63C,
@@ -104,11 +106,196 @@ $poli-yellow: (
     )
 );
 
-$poli-primary: mat-palette($poli-purple);
-$poli-accent: mat-palette($poli-yellow);
-$poli-warn: mat-palette($mat-red);
+$poli-light-primary: mat-palette($poli-light-purple);
+$poli-light-accent: mat-palette($poli-light-yellow);
+$poli-light-warn: mat-palette($mat-red);
 
-$poli-theme: mat-light-theme($poli-primary, $poli-accent, $poli-warn);
+$poli-light-background: (
+  status-bar: #9184ce,
+  app-bar:    map_get($mat-blue, 900),
+  background: #d3cdff,
+  hover:      rgba(white, 0.04), 
+  card:       #9184ce,
+  dialog:     #9184ce,
+  disabled-button: $black-12-opacity,
+  raised-button: map-get($mat-grey, 100),
+  focused-button: $black-6-opacity,
+  selected-button: map_get($mat-grey, 50),
+  selected-disabled-button: map_get($mat-grey, 100),
+  disabled-button-toggle: white,
+  unselected-chip: map_get($mat-grey, 50),
+  disabled-list-option: white,
+);
+//#392E8C
+$poli-light-foreground: (
+  base:              black,
+  divider:           $black-12-opacity,
+  dividers:          $black-12-opacity,
+  disabled:          rgba(black, 0.3),
+  disabled-button:   rgba(black, 0.3),
+  disabled-text:     rgba(black, 0.3),
+  hint-text:         rgba(black, 0.3),
+  secondary-text:    rgba(black, 0.7),
+  icon:              black,
+  icons:             black,
+  text:              black,
+  slider-min:        black,
+  slider-off:        rgba(black, 0.3),
+  slider-off-active: rgba(black, 0.3),
+);
+
+@function create-light-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+    @return (
+        primary: $primary,
+        accent: $accent,
+        warn: $warn,
+        is-dark: false,
+        foreground: $poli-light-foreground,
+        background: $poli-light-background,
+    );
+}
 
 
-@include angular-material-theme($poli-theme);
+$poli-light-theme: mat-light-theme(create-light-theme($poli-light-primary, $poli-light-accent, $poli-light-warn));
+
+
+// Dark theme
+$poli-dark-purple: (
+    50: #1b0459,
+    100: #1b0459,
+    200: #1b0459,
+    300: #1b0459,
+    400: #1b0459,
+    500: #1b0459,
+    600: #1b0459,
+    700: #1b0459,
+    800: #1b0459,
+    900: #1b0459,
+    A100: #1b0459,
+    A200: #1b0459,
+    A400: #1b0459,
+    A700: #1b0459,
+    contrast: (
+    50: #ffffff,
+    100: #ffffff,
+    200: #ffffff,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #ffffff,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+    )
+);
+
+$poli-dark-yellow: (
+    50: #FBB80F,
+    100: #FBB80F,
+    200: #FBB80F,
+    300: #FBB80F,
+    400: #FBB80F,
+    500: #FBB80F,
+    600: #FBB80F,
+    700: #FBB80F,
+    800: #FBB80F,
+    900: #FBB80F,
+    A100: #FBB80F,
+    A200: #FBB80F,
+    A400: #FBB80F,
+    A700: #FBB80F,
+    contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+    )
+);
+
+$poli-dark-primary: mat-palette($poli-dark-purple);
+$poli-dark-accent:  mat-palette($poli-dark-yellow);
+$poli-dark-warn:    mat-palette($mat-deep-orange);
+
+$poli-dark-background: (
+  status-bar: #0b0127,
+  app-bar:    map_get($mat-blue, 900),
+  background: #29185a,
+  hover:      rgba(white, 0.04), 
+  card:       #0b0127,
+  dialog:     map_get($mat-grey, 800),
+  disabled-button: $white-12-opacity,
+  raised-button: map-get($mat-grey, 800),
+  focused-button: $white-6-opacity,
+  selected-button: map_get($mat-grey, 900),
+  selected-disabled-button: map_get($mat-grey, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map_get($mat-grey, 700),
+  disabled-list-option: black,
+);
+
+$poli-dark-foreground: (
+  base:              white,
+  divider:           $white-12-opacity,
+  dividers:          $white-12-opacity,
+  disabled:          rgba(white, 0.3),
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     rgba(white, 0.3),
+  hint-text:         rgba(white, 0.3),
+  secondary-text:    rgba(white, 0.7),
+  icon:              white,
+  icons:             white,
+  text:              white,
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+@function create-dark-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+    @return (
+        primary: $primary,
+        accent: $accent,
+        warn: $warn,
+        is-dark: false,
+        foreground: $poli-dark-foreground,
+        background: $poli-dark-background,
+    );
+}
+
+
+$poli-dark-theme: mat-dark-theme(create-dark-theme($poli-dark-primary, $poli-dark-accent, $poli-dark-warn));
+
+
+// $dark-background: map-get($poli-dark-theme, background);
+// $dark-background: map_merge($dark-background, (background: $poli-dark-background));
+// $poli-dark-theme: map_merge($poli-dark-theme, (background: $dark-background));
+
+.light {
+    @include angular-material-theme($poli-light-theme);
+    @include mat-core-color($poli-light-theme);
+}
+.dark {
+    @include angular-material-color($poli-dark-theme);
+    @include mat-core-color($poli-dark-theme);
+}
+body.light {
+    @include angular-material-theme($poli-light-theme);
+    @include mat-core-color($poli-light-theme);
+}
+body.dark {
+    @include angular-material-color($poli-dark-theme);
+    @include mat-core-color($poli-dark-theme);
+}

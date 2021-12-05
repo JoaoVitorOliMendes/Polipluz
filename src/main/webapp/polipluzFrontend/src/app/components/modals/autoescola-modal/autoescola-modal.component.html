@@ -1,25 +1,80 @@
-<div class="row justify-content-center p-5 roundedHard registerContainer" [formGroup]="registerForm">
+<div class="row justify-content-center p-5 roundedHard registerContainer" [formGroup]="autoescolaForm">
+
+    <h1 class="col-12 mb-5 text-center title">Cadastre uma autoescola</h1>
 
     <mat-form-field appearance="outline" class="col-12 mb-3 outlineStandard">
         <mat-label>Nome da autoescola</mat-label>
-        <input matInput placeholder="Joao Vitor da Silva" formControlName="nome" required>
-        <mat-error *ngIf="registerForm.get('nome')?.errors?.required">
+        <input matInput placeholder="Autoescola X" formControlName="nome" required>
+        <mat-error *ngIf="autoescolaForm.get('nome')?.errors?.required">
             Por favor digite seu nome
         </mat-error>
     </mat-form-field>
     
     <mat-form-field appearance="outline" class="col-12 mb-3 outlineStandard">
-        <mat-label>Nome da autoescola</mat-label>
-        <input matInput placeholder="Joao Vitor da Silva" formControlName="nome" required>
-        <mat-error *ngIf="registerForm.get('nome')?.errors?.required">
-            Por favor digite seu nome
+        <mat-label>Email da autoescola</mat-label>
+        <input matInput placeholder="autoescolaX@email.com" formControlName="email" required>
+        <mat-error *ngIf="autoescolaForm.get('email')?.errors?.required">
+            Por favor digite um email
+        </mat-error>
+        <mat-error *ngIf="autoescolaForm.get('email')?.errors?.email">
+            Por favor digite um email valido
+        </mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline" class="col-12 mb-3 outlineStandard">
+        <mat-label>Telefone da autoescola</mat-label>
+        <input matInput [textMask]="{mask: phoneMask}" placeholder="(00) 90000-0000" formControlName="telefone" required>
+        <mat-error *ngIf="autoescolaForm.get('telefone')?.errors?.required">
+            Por favor digite um numero de telefone
+        </mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline" class="col-12 mb-3 outlineStandard">
+        <mat-label>CEP</mat-label>
+        <input matInput [textMask]="{mask: cepMask}" placeholder="00000-000" formControlName="cep" required>
+        <mat-error *ngIf="autoescolaForm.get('cep')?.errors?.required">
+            Por favor digite um cep
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col-12 mb-3 outlineStandard">
+        <mat-label>Latitude</mat-label>
+        <input matInput placeholder="-12.120981209" formControlName="latitude" required>
+        <mat-error *ngIf="autoescolaForm.get('latitude')?.errors?.required">
+            Por favor digite uma latitude
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="col-12 outlineStandard">
+        <mat-label>Longitude</mat-label>
+        <input matInput placeholder="-12.120981209" formControlName="longitude" required>
+        <mat-error *ngIf="autoescolaForm.get('longitude')?.errors?.required">
+            Por favor digite uma longitude
+        </mat-error>
+    </mat-form-field>
+
+    <a [href]="'https://www.google.com.br/maps/search/' + autoescolaForm.get('cep')?.value" class="mb-5">Pesquise aqui a latitude/longitude</a>
+    
+    <mat-form-field appearance="outline" class="col-12 mb-3 outlineStandard">
+        <mat-label>CNPJ</mat-label>
+        <input matInput [textMask]="{mask: cnpjMask}" placeholder="00000-000" formControlName="cnpj" required>
+        <mat-error *ngIf="autoescolaForm.get('cnpj')?.errors?.required">
+            Por favor digite um cnpj
+        </mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline" class="col-12 mb-3 outlineStandard">
+        <mat-label>Horario de funcionamento</mat-label>
+        <input matInput [textMask]="{mask: timeMask}" placeholder="09:00 as 18:00" formControlName="horarioFunc" required>
+        <mat-error *ngIf="autoescolaForm.get('horarioFunc')?.errors?.required">
+            Por favor digite um horario de funcionamento
         </mat-error>
     </mat-form-field>
 
     <button mat-raised-button color="primary" class="col-lg-3 m-3" (click)="save()">
         Salvar
     </button>
-    <button mat-raised-button color="accent" class="col-lg-3 m-3" (click)="cancel()">
+    <button mat-raised-button color="accent" class="col-lg-3 m-3" (click)="close()">
         Cancelar
     </button>
 

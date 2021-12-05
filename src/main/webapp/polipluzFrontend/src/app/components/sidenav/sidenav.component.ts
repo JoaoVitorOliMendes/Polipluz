@@ -2,6 +2,8 @@ import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { authJwt } from '../../login/auth/authJwt';
 import { Router } from "@angular/router";
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { ThemeService } from '../../services/themeService';
 
 @Component({
   selector: 'app-sidenav',
@@ -25,6 +27,7 @@ export class SidenavComponent implements OnInit {
   constructor(
     private authJwt: authJwt,
     public router: Router,
+    public themeService: ThemeService
   ) { }
 
   ngOnInit(): void {
@@ -62,5 +65,9 @@ export class SidenavComponent implements OnInit {
   logout() {
     this.authJwt.logout()
     this.rerouteToLogin()
+  }
+
+  toggle({ checked }: MatSlideToggleChange): void {
+    this.themeService.setMode(checked);
   }
 }

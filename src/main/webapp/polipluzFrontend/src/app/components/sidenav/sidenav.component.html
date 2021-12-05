@@ -1,20 +1,20 @@
-<mat-sidenav-container class="w-100 h-100 fullscreenContainer" fullscreen>
+<mat-sidenav-container class="w-100 h-100" fullscreen>
 
     <mat-sidenav class="leftSidenav" #drawer 
     [ngClass]="{'sidenavMain': drawerOpened, 'sidenavMainClosed': !drawerOpened}" 
     mode="side" opened>
   
       <button class="position-absolute p-0 border-0 double-arrow" [ngClass]="{'left-35': !drawerOpened}">
-        <mat-icon (click)="drawertoggle()" [ngClass]="{'mirror': drawerOpened}">double_arrow</mat-icon>
+        <mat-icon (click)="drawertoggle()" [ngClass]="{'mirror': drawerOpened}" color="primary">double_arrow</mat-icon>
       </button>
   
       <div class="sidenav d-flex flex-column min-h-100">
-        <div class="container p-0 d-flex justify-content-center flex-grow-1 mt-5 pb-5">
+        <div class="container p-0 d-flex align-items-center flex-column flex-grow-1 mt-5 pb-5">
           <ul class="list-group list-group-flush w-100">
 
             <a routerLink="home">
               <li class="list-group-item align-items-center w-100 mb-1 mt-1" [ngClass]="{'p-0 justify-content-center d-flex': !drawerOpened, 'active': router.url == '/main/home'}">
-                <mat-icon [ngClass]="{'mr-3': drawerOpened}" @appears>
+                <mat-icon [ngClass]="{'mr-3': drawerOpened}" color="primary" @appears>
                   home
                 </mat-icon>
                 <div class="mt-2" *ngIf="drawerOpened" @appears>
@@ -25,7 +25,7 @@
 
             <a routerLink="maps">
               <li class="list-group-item align-items-center w-100 mb-1 mt-1" [ngClass]="{'p-0 justify-content-center d-flex': !drawerOpened, 'active': router.url == '/main/maps'}">
-                <mat-icon [ngClass]="{'mr-3': drawerOpened}" @appears>
+                <mat-icon [ngClass]="{'mr-3': drawerOpened}" color="primary" @appears>
                   explore
                 </mat-icon>
                 <div class="mt-2" *ngIf="drawerOpened" @appears>
@@ -36,7 +36,7 @@
 
             <a role="button" (click)="logout()">
               <li class="list-group-item align-items-center w-100 mb-1 mt-1" [ngClass]="{'p-0 justify-content-center d-flex': !drawerOpened}">
-                <mat-icon [ngClass]="{'mr-3': drawerOpened}" @appears>
+                <mat-icon [ngClass]="{'mr-3': drawerOpened}" color="primary" @appears>
                   logout
                 </mat-icon>
                 <div *ngIf="drawerOpened" @appears>
@@ -46,9 +46,18 @@
             </a>
     
           </ul>
+          <div class="row mt-auto">
+            <div class="col-12 d-flex align-items-center justify-content-end">
+              <mat-slide-toggle
+                [checked]="themeService.mode"
+                (change)="toggle($event)"
+                color="primary">
+                <mat-icon>brightness_3</mat-icon>
+              </mat-slide-toggle>
+            </div>
+          </div>
         </div>
       </div>
-      
     </mat-sidenav>
   
     <mat-sidenav-content [ngStyle]="{ 'margin-left.vw': contentMargin }" class="matdrawer">

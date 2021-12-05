@@ -18,6 +18,7 @@ body {
 /* Materials Custom Input */
 .outlineStandard .mat-form-field-wrapper {
     font-weight: bold;
+    color: black;
     .mat-form-field-outline {
         color: #00000000 !important;
         background: $white;
@@ -90,6 +91,17 @@ input,textarea {
 
 .bold {
     font-weight: bold
+}
+
+
+//Modals
+.autoescolaModal .mat-dialog-container {
+    background-color: rgba($light-purple, $alpha: 0.9);
+    border-radius: 18px
+}
+
+.gm-style-iw.gm-style-iw-c {
+    padding: 0 !important;
 }
 
 /* Importing Bootstrap SCSS file. */
