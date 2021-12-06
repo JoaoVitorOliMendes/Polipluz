@@ -40,7 +40,8 @@ import { CardComponent } from './components/card/card.component';
 import { AutoescolaModalComponent } from './components/modals/autoescola-modal/autoescola-modal.component';
 import { TextMaskModule } from 'angular2-text-mask';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'; 
-
+import { FormsModule } from '@angular/forms';
+import { HighlightTextPipe } from './shared/highlight-text.pipe';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MapsComponent,
     HomeComponent,
     CardComponent,
-    AutoescolaModalComponent
+    AutoescolaModalComponent,
+    HighlightTextPipe
   ],
   imports: [
     BrowserModule,
@@ -83,6 +85,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatDialogModule,
     TextMaskModule,
     MatSlideToggleModule,
+    FormsModule,
     NgxWebstorageModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA74RoTQxioNA48qdf6LN6sjVhGa2LEPss'

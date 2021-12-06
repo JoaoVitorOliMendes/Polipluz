@@ -12,6 +12,7 @@ import { AutoescolaModalComponent } from '../modals/autoescola-modal/autoescola-
 export class CardComponent implements OnInit {
 
   @Input("autoescola") autoescola: any;
+  @Input("searchString") searchString: any;
   @Input("editable") editable: any;
   @Output("databaseUpdated") databaseUpdated = new EventEmitter<void>()
 

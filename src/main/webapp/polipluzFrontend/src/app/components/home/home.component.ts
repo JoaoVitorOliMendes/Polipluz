@@ -12,6 +12,7 @@ import { AutoescolaModalComponent } from '../modals/autoescola-modal/autoescola-
 export class HomeComponent implements OnInit {
 
   arrayAutoescolas: Autoescola[] = []
+  queryString: any = '';
 
   constructor(
     private autoescolaService: AutoescolaService,
@@ -24,6 +25,14 @@ export class HomeComponent implements OnInit {
 
   search() {
     this.autoescolaService.getAll().subscribe((res) => {
+      if(res.body) {
+        this.arrayAutoescolas = res.body
+      }
+    })
+  }
+
+  query() {
+    this.autoescolaService.query(this.queryString).subscribe((res) => {
       if(res.body) {
         this.arrayAutoescolas = res.body
       }

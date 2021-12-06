@@ -94,6 +94,15 @@ input,textarea {
 }
 
 
+
+.highlight {
+    background-color: $medium-yellow;
+    color: $dark-purple;
+    font-weight: bold;
+}
+
+
+
 //Modals
 .autoescolaModal .mat-dialog-container {
     background-color: rgba($light-purple, $alpha: 0.9);
@@ -102,6 +111,13 @@ input,textarea {
 
 .gm-style-iw.gm-style-iw-c {
     padding: 0 !important;
+}
+
+.card mat-card {
+    background-color: $white !important;
+    * {
+        color: $black !important;
+    }
 }
 
 /* Importing Bootstrap SCSS file. */

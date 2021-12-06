@@ -28,10 +28,10 @@ export class AutoescolaService {
         return this.http.get<Autoescola[]>(`${serverUrl}/autoescola`, { observe: 'response' });
     }
 
-    /*query(req?: any): Observable<EntityArrayResponseType> {
-        const options = createRequestOption(req);
-        return this.http.get<Autoescola[]>(serverUrl, { params: options, observe: 'response' });
-    }*/
+    query(string: String): Observable<EntityArrayResponseType> {
+        let params = new HttpParams().set('query', string.toString());
+        return this.http.get<Autoescola[]>(`${serverUrl}/autoescola`, { params: params, observe: 'response' });
+    }
 
     delete(id: number): Observable<HttpResponse<{}>> {
         return this.http.delete(`${serverUrl}/autoescola/${id}`, { observe: 'response' });
