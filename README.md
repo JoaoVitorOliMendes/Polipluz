@@ -26,4 +26,4 @@ Technologies used:
 <h3>
   Licence:
 </h3>
-https://github.com/JoaoVitorOliMendes/Polipluz/blob/main/LICENSE/
+https://github.com/JoaoVitorOliMendes/Polipluz/blob/main/LICENSE.md
