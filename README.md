@@ -24,5 +24,6 @@ Technologies used:
 <img src="https://github.com/JoaoVitorOliMendes/Polipluz/blob/main/src/main/webapp/polipluzFrontend/src/assets/img/poliplux_logo.svg" width="5%">
 <hr>
 <h3>
-  <a url="https://github.com/JoaoVitorOliMendes/Polipluz/blob/main/LICENSE.md">License</a>
+  Licence:
 </h3>
+https://github.com/JoaoVitorOliMendes/Polipluz/blob/main/LICENSE/
