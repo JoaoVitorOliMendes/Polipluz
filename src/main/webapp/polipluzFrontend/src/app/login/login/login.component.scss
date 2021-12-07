@@ -2,9 +2,14 @@
 
 .loginContainer {
     background-color: $medium-purple;
-    box-shadow: 3px 3px 5px 2px $black;
+    box-shadow: 0px 6px 5px 1px $black;
 }
 
 .roundedHard {
     border-radius: 32px;
+}
+
+.purple {
+    background-color: $poli-purple;
+    color: $white;
 }

@@ -6,7 +6,6 @@
 html, body { height: 100%; }
 body { 
     margin: 0;
-    background-color: $light-purple !important;
 }
 
 
@@ -39,6 +38,11 @@ body {
     
     .mat-form-field-outline-start, .mat-form-field-outline-end {
         border: none !important;
+    }
+}
+.light .yellowInput .mat-form-field-wrapper {
+    .mat-form-field-outline {
+        background: $poli-yellow !important;
     }
 }
 .outlineStandard.mat-form-field .mat-form-field-label {
@@ -122,3 +126,14 @@ input,textarea {
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+.light a:hover .list-group-item, body.light .active {
+    color: $dark-grey !important;
+    border-right: $dark-grey solid !important;
+    font-weight: bold;
+}
+.dark a:hover .list-group-item, body.dark .active {
+    color: $white !important;
+    border-right: $white solid !important;
+    font-weight: bold;
+}

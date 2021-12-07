@@ -53,7 +53,7 @@
         </mat-error>
     </mat-form-field>
 
-    <a [href]="'https://www.google.com.br/maps/search/' + autoescolaForm.get('cep')?.value" class="mb-5">Pesquise aqui a latitude/longitude</a>
+    <a [href]="'https://www.google.com.br/maps/search/' + autoescolaForm.get('cep')?.value" class="mb-5"  target="_blank" rel="noreferrer noopener">Pesquise aqui a latitude/longitude</a>
     
     <mat-form-field appearance="outline" class="col-12 mb-3 outlineStandard">
         <mat-label>CNPJ</mat-label>
@@ -74,7 +74,7 @@
     <button mat-raised-button color="primary" class="col-lg-3 m-3" (click)="save()">
         Salvar
     </button>
-    <button mat-raised-button color="accent" class="col-lg-3 m-3" (click)="close()">
+    <button mat-raised-button color="warn" class="col-lg-3 m-3" (click)="close()">
         Cancelar
     </button>
 

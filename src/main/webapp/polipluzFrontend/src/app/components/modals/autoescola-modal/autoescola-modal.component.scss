@@ -1,5 +1,8 @@
 @import '../../../../styles/styleVariables.scss';
 
-.title {
+.dark .title {
     color: $white;
+}
+.light .title {
+    color: $black;
 }

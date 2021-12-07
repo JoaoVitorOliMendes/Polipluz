@@ -74,20 +74,20 @@ $poli-light-purple: (
 );
 
 $poli-light-yellow: (
-    50: #F1E63C,
-    100: #F1E63C,
-    200: #F1E63C,
-    300: #F1E63C,
-    400: #F1E63C,
-    500: #F1E63C,
-    600: #F1E63C,
-    700: #F1E63C,
-    800: #F1E63C,
-    900: #F1E63C,
-    A100: #F1E63C,
-    A200: #F1E63C,
-    A400: #F1E63C,
-    A700: #F1E63C,
+    50: #fffcce,
+    100: #fffcce,
+    200: #fffcce,
+    300: #fffcce,
+    400: #fffcce,
+    500: #fffcce,
+    600: #fffcce,
+    700: #fffcce,
+    800: #fffcce,
+    900: #fffcce,
+    A100: #fffcce,
+    A200: #fffcce,
+    A400: #fffcce,
+    A700: #fffcce,
     contrast: (
     50: #000000,
     100: #000000,
@@ -111,12 +111,12 @@ $poli-light-accent: mat-palette($poli-light-yellow);
 $poli-light-warn: mat-palette($mat-red);
 
 $poli-light-background: (
-  status-bar: #9184ce,
+  status-bar: #F1E63C,
   app-bar:    map_get($mat-blue, 900),
-  background: #d3cdff,
+  background: #ffffff,
   hover:      rgba(white, 0.04), 
-  card:       #9184ce,
-  dialog:     #9184ce,
+  card:       #F1E63C,
+  dialog:     #F1E63C,
   disabled-button: $black-12-opacity,
   raised-button: map-get($mat-grey, 100),
   focused-button: $black-6-opacity,
@@ -277,11 +277,6 @@ $poli-dark-foreground: (
 
 
 $poli-dark-theme: mat-dark-theme(create-dark-theme($poli-dark-primary, $poli-dark-accent, $poli-dark-warn));
-
-
-// $dark-background: map-get($poli-dark-theme, background);
-// $dark-background: map_merge($dark-background, (background: $poli-dark-background));
-// $poli-dark-theme: map_merge($poli-dark-theme, (background: $dark-background));
 
 .light {
     @include angular-material-theme($poli-light-theme);
