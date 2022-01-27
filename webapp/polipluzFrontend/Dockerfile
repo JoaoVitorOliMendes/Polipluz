@@ -1,13 +1,13 @@
 FROM node:14.15-alpine AS builder
 
-WORKDIR /opt/web
-COPY package.json ./
+WORKDIR /app
+COPY package.json /app
 RUN npm install
 
-COPY . /opt/web/
+COPY . .
 RUN npm run build
 
 FROM nginx:1.17-alpine
-COPY nginx.config /etc/nginx/conf.d/default.conf
-COPY --from=builder /opt/web/dist/notes /usr/share/nginx/html
-EXPOSE 80
+VOLUME /var/cache/nginx
+COPY ./nginx.config /wtc/nginx/conf.d/default.conf
+COPY --from=builder app/dist/polipluzFrontend /usr/share/nginx/html
